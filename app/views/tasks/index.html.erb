@@ -1,0 +1,21 @@
+<h1>Tasks#index</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+
+
+<%  @tasks.each do |task_object| %>
+<div>
+<p><%=  task_object.name %></p>
+<%=  task_object.description %>
+<%=  task_object.done %>
+<%=  task_object.createdat%>
+<p><%= link_to task_object.name, task_path(task_object) %></p>
+<%= link_to "Delete", delete_path(task_object),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+</div>
+<% end %>
+
+
+<!-- a link to its show view (use a link_to helper)
+a link to its edit view
+a link to its delete action. Hint: a standard link does not allow to perform DELETE request, so here you should add a method: :delete option to your link_to helper. -->
